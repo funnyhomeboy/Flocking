@@ -1,17 +1,18 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "Triangle.h"
-
+#include "TriangleBoid.h"
+#include <vector>
 
 class Application
 {
 public:
 
-	Triangle* tri;
+	std::vector<TriangleBoid> boidVector;
 	sf::RenderWindow window;
 
 	void run();
 	void handleInput();
+	void update();
 	void render();
 
 	Application();

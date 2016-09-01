@@ -3,24 +3,24 @@
 using namespace sf;
 
 
-Application::Application() 
-	:	window(VideoMode(1024, 768), "SFML")		
+Application::Application() : window(VideoMode(1024, 768), "SFML")		
 {
-	tri = new Triangle(sf::Vector2f(100.f, 100.f));
+	boidVector.emplace_back(TriangleBoid(sf::Vector2f(100.f, 100.f), 100.f));
 }
 
 
 Application::~Application()
 {
-	delete tri;
 }
 
 
 void Application::run()
 {
+
 	while (window.isOpen())
 	{
 		handleInput();
+		update();
 		render();
 	}
 }
@@ -40,9 +40,22 @@ void Application::handleInput()
 	}
 }
 
+void Application::update()
+{
+	for (auto& boid : boidVector)
+	{
+		boid.update();
+	}
+}
+
 void Application::render()
 {
 	window.clear();
-	window.draw(*tri);
+	
+	for (auto& boid : boidVector)
+	{
+		boid.draw();
+	}
+	
 	window.display();
 }

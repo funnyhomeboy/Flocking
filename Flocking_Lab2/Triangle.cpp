@@ -2,9 +2,9 @@
 
 
 
-Triangle::Triangle(sf::Vector2f tipPoint)
+Triangle::Triangle(sf::Vector2f tipPoint, float size)
 {
-	this->size = 25.0f;
+	this->size = size;
 
 	this->setPointCount(3);
 	this->setPoint(0, tipPoint);
