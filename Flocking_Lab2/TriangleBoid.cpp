@@ -1,16 +1,14 @@
 #include "TriangleBoid.h"
-#include "Application.h"
+
 
 
 void TriangleBoid::draw()
 {
-	this->app->window.draw(this->comfortZone);
-	this->app->window.draw(*this);
+	this->app
 }
 
-void TriangleBoid::update(float dt)
+void TriangleBoid::update()
 {
-	
 }
 
 TriangleBoid::TriangleBoid(Application* app, sf::Vector2f origin, float size) : Triangle(origin, size)
