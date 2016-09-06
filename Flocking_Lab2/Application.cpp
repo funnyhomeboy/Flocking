@@ -3,48 +3,45 @@
 using namespace sf;
 
 
-Application::Application() : window(VideoMode(1024, 768), "SFML")		
+Application::Application() : window(VideoMode(1024, 768), "SFML"), inputHandler(this)
 {
-	boidVector.emplace_back(TriangleBoid(sf::Vector2f(100.f, 100.f), 100.f));
+	boidVector.emplace_back((TriangleBoid(this, sf::Vector2f(100.f, 100.f), 32.f)));
+	inputStates = 0;
 }
 
 
 Application::~Application()
 {
-}
 
+}
 
 void Application::run()
 {
 
 	while (window.isOpen())
 	{
-		handleInput();
+		timeInitial = clock.getElapsedTime();
+		inputHandler.handleInput();
 		update();
-		render();
+		render();		
 	}
 }
 
-void Application::handleInput()
+void Application::getDeltaTime()
 {
-	Event ev;
-	while (window.pollEvent(ev))
-	{
-		switch (ev.type)
-		{
-		case Event::Closed:
-			window.close();
-		default:
-			break;
-		}
-	}
+	timeFinal = clock.getElapsedTime();
+	deltaTime = timeFinal.asSeconds() - timeInitial.asSeconds();
+	//Cap our frame to 1/60 of a second, in case latency becomes an issue.
+	if (deltaTime > 1 / 60.f)
+		deltaTime = 1 / 60.f;
+	printf("%f\n", deltaTime);
 }
 
 void Application::update()
 {
 	for (auto& boid : boidVector)
 	{
-		boid.update();
+		boid.update(deltaTime);
 	}
 }
 
