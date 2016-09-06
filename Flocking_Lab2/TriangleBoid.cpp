@@ -6,15 +6,11 @@ void TriangleBoid::draw()
 {
 	this->app->window.draw(this->comfortZone);
 	this->app->window.draw(*this);
-	this->app->window.draw(this->directionPointer);
 }
 
-void TriangleBoid::update()
+void TriangleBoid::update(float dt)
 {
-	velocity -= {0, 0};
-	this->move(velocity);
-	this->comfortZone.move(velocity);
-	this->directionPointer.move(velocity);
+	
 }
 
 TriangleBoid::TriangleBoid(Application* app, sf::Vector2f origin, float size) : Triangle(origin, size)
@@ -30,12 +26,6 @@ TriangleBoid::TriangleBoid(Application* app, sf::Vector2f origin, float size) : 
 	this->comfortZone.setFillColor(sf::Color::Transparent);
 	this->comfortZone.setOutlineColor(sf::Color::Green);
 	this->comfortZone.setOutlineThickness(2);
-
-	this->directionPointer.setSize(sf::Vector2f(2, 16));
-	this->directionPointer.setOrigin(1, 8);
-	this->directionPointer.setRotation(this->getRotation());
-	this->directionPointer.setFillColor(sf::Color::White);
-	this->directionPointer.setPosition(sf::Vector2f(this->position.x, this->position.y - (size * 3/4)));
 
 }
 
