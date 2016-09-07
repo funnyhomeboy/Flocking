@@ -6,7 +6,7 @@ class TriangleBoid : public Triangle
 {
 private:
 	
-	int blah;
+	float mass;
 	sf::Vector2f position;
 	sf::Vector2f velocity;
 	sf::Vector2f acceleration;
@@ -15,6 +15,9 @@ private:
 public:
 	sf::CircleShape comfortZone;
 	sf::RectangleShape directionPointer;
+
+	void moveTo(sf::Vector2f point);
+	void pointTo(sf::Vector2f point);
 
 	void draw() override;
 	void update(float dt) override;
