@@ -6,7 +6,7 @@ class TriangleBoid : public Triangle
 {
 private:
 	
-
+	int blah;
 	sf::Vector2f position;
 	sf::Vector2f velocity;
 	sf::Vector2f acceleration;
