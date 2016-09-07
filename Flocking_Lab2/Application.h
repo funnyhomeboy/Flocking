@@ -6,7 +6,7 @@
 
 class Application
 {
-private:
+private: 
 	sf::Clock clock;
 	sf::Time timeFinal, timeInitial;
 	sf::Uint64 inputStates;

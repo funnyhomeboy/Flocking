@@ -6,7 +6,7 @@ using namespace sf;
 Application::Application() : window(VideoMode(1024, 768), "SFML"), inputHandler(this)
 {
 	boidVector.emplace_back((TriangleBoid(this, sf::Vector2f(100.f, 100.f), 32.f)));
-	inputStates = 0;
+	inputStates = 0; 
 }
 
 
