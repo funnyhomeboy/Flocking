@@ -40,10 +40,20 @@ float determinant(float a, float b, float c, float d)
 
 float dot(const sf::Vector2f& A, const sf::Vector2f& B)
 {
-	return 0.0f;
+	return A.x*B.x + A.y*B.y;
 }
 
 float dot(const sf::Vector3f& A, const sf::Vector3f& B)
+{
+	return A.x*B.x + A.y*B.y + A.z*B.z;
+}
+
+float magnitude(const sf::Vector2f & A)
+{
+	return 0.0f;
+}
+
+float magnitude(const sf::Vector3f & A)
 {
 	return 0.0f;
 }

@@ -23,5 +23,7 @@ sf::Vector3f cross(const sf::Vector3f& A, const sf::Vector3f& B);
 float determinant(float a, float b, float c, float d);
 
 float dot(const sf::Vector2f& A, const sf::Vector2f& B);
-
 float dot(const sf::Vector3f& A, const sf::Vector3f& B);
+
+float magnitude(const sf::Vector2f& A);
+float magnitude(const sf::Vector3f& A);
