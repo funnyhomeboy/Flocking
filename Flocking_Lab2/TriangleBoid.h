@@ -5,19 +5,15 @@
 class TriangleBoid : public Triangle
 {
 private:
-	
-
 	sf::Vector2f position;
 	sf::Vector2f velocity;
-	sf::Vector2f acceleration;
 	float orientation;
 
 public:
 	sf::CircleShape comfortZone;
-	sf::RectangleShape directionPointer;
 
-	void draw() override;
-	void update(float dt) override;
+	void draw();
+	void update();
 
 	TriangleBoid(Application* app, sf::Vector2f origin, float size = 16.0f);
 	~TriangleBoid();
